@@ -8,11 +8,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
 
-options = Options()
-service = Service()
-options.add_experimental_option("detach", True)
-driver = webdriver.Chrome(
-    service=Service(ChromeDriverManager(driver_version="116.0.5845.141").install(), options=options))
 PROMISED_DOWN = 150
 PROMISED_UP = 10
 TWITTER_EMAIL = "Client's Twitter Email"
@@ -25,7 +20,7 @@ class InternetSpeedTwitterBot:
         self.down = 0
         self.options = Options()
         self.service = Service()
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install(), options=options))
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install(), options=Options))
         
     #This grabs the speedtest homepage and clicks on the go button
     def get_internet_speed(self):
